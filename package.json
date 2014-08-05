@@ -9,6 +9,8 @@
   "author": "@JaxGeller",
   "license": "MIT",
   "dependencies": {
+    "inquirer": "^0.5.1",
+    "node-geocoder": "^2.7.0",
     "request": "^2.38.0"
   },
   "devDependencies": {

@@ -1,37 +1,33 @@
-var keys = require('./keys');
 var request = require('request');
 
-function UberClient (token, deviceId) {
-  this.profile = {
-    token: token,
-    deviceId: deviceId,
-    app: 'client',
-    uri: 'https://cn-dc1.uber.com/'
+var url = 'https://m.uber.com/cn';
+
+var UberClient = function(token, location) {
+  if (!token) {
+    throw new Error('You need a token to use the api. Try using bin/getToken');
   }
-  this.location = {
-    longitude:
-    latitude:
-    setLocation: function(long, lat) {
-      this.location.longitude = long;
-      this.location.lat = lat;
+  if (!location.longitude || !location.latitude) {
+    throw new Error('You need to supply your location. Try using bin/getCoordinates');
+  }
+  
+  this.config = {
+    url: 'https://m.uber.com/cn',
+    json: {
+      token: token,
+      longitude: location.longitude,
+      latitude: location.latitude,
+      app: 'client',
+      messageType: '',
     }
   }
-  this.token = token;
-  this.deviceId = deviceId;
-  this.app = 'client';
-  this.uri = 'https://cn-dc1.uber.com/';
+
+  this.getLocation = function() {
+    return {
+      latitude: this.config.json.latitude,
+      longitude: this.config.json.longitude
+    }
+  }
+  
 }
 
 
-
-
-this.request = {
-    method: 'POST',
-    uri: keys.uri,
-    json: this.opts
-  }
-var uber = new UberClient(keys.token, keys.deviceId);
-
-uber.pingClient('----','----', function(res) {
-  console.log(res);
-})

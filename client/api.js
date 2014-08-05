@@ -1,0 +1,62 @@
+var request = require('request');
+
+exports.pingClient = function(cb) {
+  var config = this.config;
+  config.json.messageType = 'PingClient';
+  
+  request.post(config, function(err, res, body) {
+    if (err) {
+      cb(err);
+    }
+    else if (body.messageType === 'Error') {
+      cb(new Error(body.description));
+    }
+    else {
+      cb(null, body);
+    }
+  });
+}
+
+exports.pickup = function(cb) {
+  var config = this.config;
+  config.json.messageType = 'Pickup';
+  config.json.pickupLocation = this.getLocation();
+
+  request.post(config, function(err, res, body) {
+    if (err) {
+      cb(err);
+    }
+    else if (body.messageType === 'Error') {
+      cb(new Error(body.description));
+    }
+    else {
+      cb(null, body);
+    }
+  });
+}
+
+exports.cancel = function(cb) {
+  var config = this.config;
+  config.json.messageType = 'PickupCanceledClient';
+  request.post(config, function(err, res, body) {
+    if (err) {
+      cb(err);
+    }
+    else if (body.messageType === 'Error') {
+      cb(new Error(body.description));
+    }
+    else {
+      cb(null, body);
+    }
+  });
+}
+
+
+exports.locationSearch = function(cb) {
+
+}
+
+
+
+
+
