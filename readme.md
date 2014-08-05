@@ -1,13 +1,5 @@
 # Uber API Client
 
-### First thing you will need is that deviceId, token. You can get these by using Charles Proxy with your phone.
-
-### Use
-```js
-// Once you have your id's,
-var UberClient = require('uberjs');
-var uber = new UberClient(token, deviceId);
-uber.call_some_method();
-```
+### First you need the token, the easiest way to do this is through m.uber.com/cn. I've included a simple CLI to login and return a token. Just run `bin/getToken.js`
 
 ### Still A work in progress, so far PingClient for Car's around you is working. 
