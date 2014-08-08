@@ -1,6 +1,6 @@
 {
   "name": "uberjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Uber API Client",
   "main": "index.js",
   "scripts": {

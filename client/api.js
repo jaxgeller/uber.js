@@ -17,10 +17,10 @@ exports.pingClient = function(cb) {
   });
 }
 
-exports.pickup = function(cb) {
+exports.pickup = function(location, cb) {
   var config = this.config;
   config.json.messageType = 'Pickup';
-  config.json.pickupLocation = this.getLocation();
+  config.json.pickupLocation = location;
 
   request.post(config, function(err, res, body) {
     if (err) {

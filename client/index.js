@@ -1,6 +1,8 @@
 var request = require('request');
 
 var url = 'https://m.uber.com/cn';
+var api = require('./api');
+var helpers = require('./helpers');
 
 var UberClient = function(token, location) {
   if (!token) {
@@ -21,13 +23,14 @@ var UberClient = function(token, location) {
     }
   }
 
-  this.getLocation = function() {
-    return {
-      latitude: this.config.json.latitude,
-      longitude: this.config.json.longitude
-    }
-  }
+  this.pingClient = api.pingClient;
+  this.pickup = api.pickup;
+  this.cancel = api.cancel;
+
+  this.getToken = helpers.getToken;
+  this.getCoordinates = helpers.getCoordinates;
   
 }
 
 
+module.exports = UberClient;
