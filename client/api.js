@@ -52,11 +52,6 @@ exports.cancel = function(cb) {
 }
 
 
-exports.locationSearch = function(cb) {
-
-}
-
-
 
 
 
