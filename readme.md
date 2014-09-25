@@ -1,5 +1,5 @@
-## This does not use the official api
-This is a library that gives access to the actuall app. IE you can book and cancel rides, etc.
+## This does not use the official api, it is a library for interfacing with the actual app.
+How is this different from the official api?  This allows you to do everything the app does, it's not limited. 
 
 If you are looking for the official api, check out uber's api.
 
