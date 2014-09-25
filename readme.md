@@ -1,5 +1,12 @@
+## This does not use the official api
+This is a library that gives access to the actuall app. IE you can book and cancel rides, etc.
+
+If you are looking for the official api, check out uber's api.
+
 # Uber.js
 > A semi-completed node library of the Uber Api
+
+
 
 ### Install
 ---
